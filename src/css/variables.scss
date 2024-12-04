@@ -1,0 +1,6 @@
+$background_color:#ffff00;
+
+@mixin button_design($paddings,$colorred){
+    padding:$paddings;
+    color:$colorred;
+}

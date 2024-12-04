@@ -1,0 +1,14 @@
+.App{
+    margin: 40px;
+}
+
+.headerclass{
+    margin-bottom: 40px;
+}
+
+h2{
+    color:black;
+}
+.eachtaskname{
+    border: 2px solid black;
+}

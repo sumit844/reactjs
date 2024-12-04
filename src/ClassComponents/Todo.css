@@ -1,0 +1,60 @@
+.flexContainer {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  color: white;
+}
+
+.todoTaskListContainer {
+  margin: 40px;
+}
+
+.inputElement {
+  padding: 10px;
+  border-radius: 10px;
+  width: 70%;
+}
+
+.buttonClass {
+  padding: 10px;
+  margin-left: 10px;
+  background-color: black;
+  color: white;
+  width: 10%;
+}
+
+.todoTaskListContainer {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+.allTaskContainerList {
+  display: flex;
+  flex-direction: column;
+}
+
+.eachTask{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center
+
+}
+
+.eachtaskname{
+  border: 2px solid white;
+  margin: 20px 0px; 
+  width: 70%;
+
+}
+
+.buttonDiv{
+  margin-left: 10px;
+  width: 10%;
+}
+
+.deleteButton{
+padding: 20px 30px;
+border-radius: 10px;
+}

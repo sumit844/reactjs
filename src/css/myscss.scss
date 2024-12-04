@@ -1,0 +1,8 @@
+@import "variables.scss";
+
+body{
+    background-color: $background_color !important;
+    .mybutton{
+        @include button_design(200px, blue);
+    }
+}
