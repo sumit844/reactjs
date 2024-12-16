@@ -1,0 +1,14 @@
+name: Branch Naming Convention
+on:
+  push:
+    branches:
+      - main
+  label:
+    types:
+      - created
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo "Checking branch naming convention"
