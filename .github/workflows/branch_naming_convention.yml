@@ -16,5 +16,3 @@ jobs:
         uses: ./resuable_workflow.yml
         with:
           environment: "DEV"
-        secrets:
-          personal_access_token: ${{secrets.personal}}

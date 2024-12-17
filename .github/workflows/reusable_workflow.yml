@@ -6,10 +6,6 @@ on:
         description: "Testing it on DEV"
         required: true
         type: string
-    secrets:
-      personal_access_token:
-        required: false
-        type: true
 jons:
   calling:
     runs-on: ubuntu-latest
