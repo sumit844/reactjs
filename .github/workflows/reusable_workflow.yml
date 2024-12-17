@@ -1,0 +1,18 @@
+name: Reusable Workflow for Build
+on:
+  workflow_call:
+    inputs:
+      environment:
+        description: "Testing it on DEV"
+        required: true
+        type: string
+    secrets:
+      personal_access_token:
+        required: false
+        type: true
+jons:
+  calling:
+    runs-on: ubuntu-latest
+    steps:
+      - name: This is the environment ${{inputs.environment}}
+        run: echo "this is the environment name ${{inputs.environment}}"
