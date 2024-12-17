@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Dropdown } from "react-bootstrap";
 
 const CurrencyConvertor = () => {
   const [countryFrom, setCountryFrom] = useState<number>(0);
@@ -15,10 +14,6 @@ const CurrencyConvertor = () => {
   };
 
   const calculateConvertedValue = () => {
-    let originalv = originalValue;
-    let countryfrom = countryFrom;
-    let countryr = countryTo;
-
     let totalValueFrom = originalValue * countryFrom;
     totalValueFrom = totalValueFrom / countryTo;
     console.log(totalValueFrom);

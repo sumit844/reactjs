@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CloseButton } from "react-bootstrap";
-import {Spinner} from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 
 const ModalComponent = () => {
   const [showModalStatus, setShowModalStatus] = useState(false);
@@ -18,7 +18,7 @@ const ModalComponent = () => {
         onClick={() => {
           showModal();
         }}
-       className="bg-info">
+        className="bg-info">
         {" "}
         Show Modal
       </button>
@@ -30,13 +30,13 @@ const ModalComponent = () => {
               <CloseButton onClick={showModal} style={{ float: "right" }}>
               </CloseButton>
             </h1>
-            <marquee>Welcome to the Custom Modal. i have created this Modal easily</marquee>
+            <p>Welcome to the Custom Modal. i have created this Modal easily</p>
           </div>
         </div>
 
 
       )}
-      <Spinner/>
+      <Spinner />
     </>
   );
 };

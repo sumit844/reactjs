@@ -9,20 +9,20 @@ class Todo extends Component {
     };
   }
   takeInput(event) {
-   console.log(event.target.value)
-    if (event.target.value!==''){
+    console.log(event.target.value)
+    if (event.target.value !== '') {
       let id = Math.floor(Math.random() * 10000).toString();
       this.setState((prev) => {
         return { ...this.state, userTask: { ...this.state.userTask, taskName: event.target.value, taskId: id, status: false } };
       });
     }
-    
+
   }
 
   addTask = () => {
     let addedTasks = this.state.AddedTask;
 
-    if(this.state.userTask.taskName!==''){
+    if (this.state.userTask.taskName !== '') {
       addedTasks.push(this.state.userTask);
       addedTasks = addedTasks.reverse();
 
@@ -35,7 +35,7 @@ class Todo extends Component {
     let addedTasks = this.state.AddedTask;
 
     let modifiedTask = addedTasks.filter((item) => {
-      return item.taskId != id;
+      return item.taskId !== id;
     });
 
     this.setState((prev) => {
@@ -60,7 +60,7 @@ class Todo extends Component {
     let addedTasks = this.state.AddedTask;
 
     let modifiedTask = addedTasks.filter((item) => {
-      return item.taskId != id;
+      return item.taskId !== id;
     });
 
     this.setState((prev) => {
@@ -113,7 +113,7 @@ class Todo extends Component {
                         }}
                         className="col-2 col-sm-1 col-md-1 bg-warning"
                       >
-                     <i className="fa fa-times"></i>
+                        <i className="fa fa-times"></i>
                       </button>
                       <button
                         onClick={(event) => {
@@ -121,7 +121,7 @@ class Todo extends Component {
                         }}
                         className="col-2 col-sm-1 col-md-1 bg-danger"
                       >
-                       <i className="fa fa-trash"></i>
+                        <i className="fa fa-trash"></i>
                       </button>
                     </div>
                   )}

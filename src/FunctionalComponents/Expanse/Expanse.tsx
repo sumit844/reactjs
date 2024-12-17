@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Row, Container, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { AppDataContext } from "../AppData";
 interface Iexpanse {
   expanseName: string;
@@ -11,7 +11,6 @@ const Expanse = () => {
   let formData1 = { expanseName: "", expanseAmount: "" };
   const [formData, setFormData] = useState(formData1);
   const [formValidataError, setFormValidationError] = useState({ expanseNameError: "", expanseAmountError: "" });
-  const [formSubmitStatus, setFormSubmitStatus] = useState(false);
   const [expanseList, setExpanseList] = useState<Iexpanse[]>();
 
   const changeFormFieldValue = (event: any) => {

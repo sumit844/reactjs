@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Row, Container, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { AppDataContext } from "../AppData";
 
 interface IIncome {
@@ -12,7 +12,6 @@ const Income = () => {
   let formData1 = { incomeName: "", incomeAmount: "" };
   const [formData, setFormData] = useState(formData1);
   const [formValidataError, setFormValidationError] = useState({ incomeNameError: "", incomeAmountError: "" });
-  const [formSubmitStatus, setFormSubmitStatus] = useState(false);
   const [incomeList, setIncomeList] = useState<IIncome[]>();
 
   const changeFormFieldValue = (event: any) => {

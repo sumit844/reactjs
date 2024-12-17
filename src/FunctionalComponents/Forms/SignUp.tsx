@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Row, Container, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { useState } from "react";
 
 const SignUp = () => {
