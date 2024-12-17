@@ -13,6 +13,6 @@ jobs:
       - name: Checkout the branch
         run: echo "Checking branch naming convention"
       - name: calling the reusable workflow.
-        uses: ./resuable_workflow.yml
+        uses: ./.github/workflows/reusable_workflow.yml
         with:
           environment: "DEV"
