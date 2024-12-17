@@ -168,6 +168,7 @@ class Todo extends Component {
                       </div>
                     );
                   }
+                  return null;
                 })}
               </div>
             </div>

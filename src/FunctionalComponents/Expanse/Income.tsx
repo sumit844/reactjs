@@ -55,7 +55,7 @@ const Income = () => {
   useEffect(() => {
     console.log(incomeList);
     setFormData(formData1);
-  }, [incomeList]);
+  }, [incomeList, formData1]);
   return (
     <div className="m-4">
       <h3>Income</h3>

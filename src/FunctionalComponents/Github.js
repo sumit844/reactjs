@@ -11,37 +11,37 @@ const Github = () => {
             })
             .then((dataFinal) => {
                 console.log(dataFinal)
-                if(dataFinal.length>0){
-                    setGithubData([...githubData,...dataFinal])
-                } 
+                if (dataFinal.length > 0) {
+                    setGithubData([...githubData, ...dataFinal])
+                }
             })
-    }, [pageNumber])
+    }, [pageNumber, githubData])
     return (<>
         <h1>These are Github Issues</h1>
         <Table responsive striped bordered hover>
             <thead>
-                <tr><th style={{width:"25%"}}>Id</th>
-                <th style={{width:"45%"}}>URL</th>
-                <th style={{width:"15%"}}>User Id</th>
-                <th style={{width:"15%"}}>Number</th>
+                <tr><th style={{ width: "25%" }}>Id</th>
+                    <th style={{ width: "45%" }}>URL</th>
+                    <th style={{ width: "15%" }}>User Id</th>
+                    <th style={{ width: "15%" }}>Number</th>
                 </tr>
-               </thead> 
+            </thead>
             <tbody>
-            {githubData?.map((issue) => {
-                return (<tr key={issue?.number}>
-                    <td>{issue?.id}</td>
-                    <td>{issue?.url}</td>
-                    <td>{issue?.user?.id}</td>
-                    <td>{issue?.number}</td>
-                </tr>)
+                {githubData?.map((issue) => {
+                    return (<tr key={issue?.number}>
+                        <td>{issue?.id}</td>
+                        <td>{issue?.url}</td>
+                        <td>{issue?.user?.id}</td>
+                        <td>{issue?.number}</td>
+                    </tr>)
 
 
-            })}
+                })}
             </tbody>
         </Table>
         <button onClick={() => {
             setPageNumber((pageNumber) => pageNumber + 1)
-        }} style={{margin:"20px", color:"white",backgroundColor:"black",padding:"20px"}}>Load More</button>
+        }} style={{ margin: "20px", color: "white", backgroundColor: "black", padding: "20px" }}>Load More</button>
     </>)
 }
 

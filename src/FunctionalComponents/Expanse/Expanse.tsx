@@ -54,7 +54,8 @@ const Expanse = () => {
   useEffect(() => {
     console.log(expanseList);
     setFormData(formData1);
-  }, [expanseList]);
+  }, [expanseList, formData1]);
+
   return (
     <div className="m-4">
       <h3>Expanse</h3>
