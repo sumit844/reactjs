@@ -7,7 +7,7 @@ on:
         description: "Testing it on DEV"
         required: true
         type: string
-jons:
+jobs:
   calling:
     runs-on: ubuntu-latest
     steps:
