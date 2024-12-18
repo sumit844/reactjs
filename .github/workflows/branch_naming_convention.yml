@@ -7,6 +7,6 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      uses: sumit844/reactjs/.github/workflows/reusable_workflow.yml@main
-      with:
-        environment: "DEV"
+      - uses: sumit844/reactjs/.github/workflows/reusable_workflow.yml@main
+        with:
+          environment: "DEV"
