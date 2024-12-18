@@ -10,6 +10,6 @@ jobs:
   calling:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: This is the environment
         run: echo "this is the environment name ${{inputs.environment}}"
