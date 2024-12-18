@@ -6,8 +6,6 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: sumit844/reactjs/.github/workflows/reusable_workflow.yml@main
-        with:
-          environment: "DEV"
+    uses: sumit844/reactjs/.github/workflows/reusable_workflow.yml@main
+    with:
+      environment: ${{ github.ref_name }}
