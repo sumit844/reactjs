@@ -6,6 +6,9 @@ on:
         description: "Testing it on DEV"
         required: true
         type: string
+
+  workflow_dispatch:
+
 jobs:
   calling:
     runs-on: ubuntu-latest
