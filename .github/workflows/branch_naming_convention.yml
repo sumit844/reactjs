@@ -10,4 +10,4 @@ jobs:
   check:
     uses: ./.github/workflows/reusable_workflow.yml
     with:
-    environment: "main"
+      environment: "main"
