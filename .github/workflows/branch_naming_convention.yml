@@ -5,5 +5,4 @@ on:
       - main
 jobs:
   check:
-    runs-on: ubuntu-latest
     uses: ./.github/workflows/reusable_workflow.yml
