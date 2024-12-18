@@ -13,6 +13,6 @@ jobs:
         run: echo "welcome"
 
       - name: calling the reusable workflow.
-        uses: ./.github/workflows/reusable_workflow.yml
+      - uses: ./.github/workflows/reusable_workflow.yml
         with:
           environment: "DEV"
