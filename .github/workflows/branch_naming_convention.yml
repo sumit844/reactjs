@@ -3,9 +3,6 @@ on:
   push:
     branches:
       - main
-  label:
-    types:
-      - created
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -13,7 +10,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Checkout code because using workflow file
         run: echo "welcome"
-
       - name: calling the reusable workflow.
         uses: ./.github/workflows/reusable_workflow.yml
         with:
