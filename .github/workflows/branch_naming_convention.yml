@@ -11,6 +11,6 @@ jobs:
 
       - name: Checkout code because using workflow file
         run: echo "welcome"
-      - uses: sumit844/reactjs/.github/workflows/reusable_workflow.yml
+      - uses: sumit844/reactjs/.github/workflows/reusable_workflow.yml@main
         with:
           environment: "DEV"
