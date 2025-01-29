@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Navbar } from "react-bootstrap";
+import { AppDataContext } from "../AppData";
 
 const NavigationLink = () => {
+  const AppDataContextnew = useContext(AppDataContext);
+  useEffect(() => { }, [AppDataContextnew.appData.loginStatus])
   return (
-    <Navbar className="headerclass bg-secondary">
-      <nav class="navbar navbar-expand-lg">
+    <Navbar className={`headerclass bg-secondary ${AppDataContextnew?.appData?.darkTheme ? "bg-black text-white" : " "}`} >
+      <nav class="navbar">
         <div class="container-fluid">
           <Link to="/" className="navbar-brand text-white">
             Home
@@ -25,9 +28,14 @@ const NavigationLink = () => {
                   Countries
                 </Link>
               </li>
+              <li class="nav-item ml-auto flex-fill">
+                <Link to="/weather" className="nav-link text-white">
+                  Weather
+                </Link>
+              </li>
               <li class="nav-item ml-auto">
-                <Link to="/Github" className="nav-link text-white">
-                  GitHub Issues{" "}
+                <Link to="/accounts" className="nav-link text-white">
+                  Accounts{" "}
                 </Link>
               </li>
               <li class="nav-item ml-auto"> <Link to="/EmiCalculator" className="nav-link text-white">
@@ -38,9 +46,12 @@ const NavigationLink = () => {
                   ExpanseTracker{" "}
                 </Link></li>
               <li className="nav-item ml-auto">
-                <Link to="/CurrencyConvertor" className="nav-link text-white">
-                  CurrencyConvertor{" "}
-                </Link></li>
+                {!AppDataContextnew?.appData.loginStatus ? (<Link to="/login" className="nav-link text-white">
+                  Login{" "}
+                </Link>) : (<button onClick={AppDataContextnew.logout_user} className="nav-link text-white">
+                  logout{" "}
+                </button>)}
+              </li>
               <li className="nav-item dropdown flex-fill col">
                 <a className="nav-link dropdown-toggle text-white" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   More Insights
@@ -76,18 +87,57 @@ const NavigationLink = () => {
                       Passing Function Parent{" "}
                     </Link>
                   </li>
+                  <li>
+                    <Link to="/countrylist" className="dropdown-item">
+                      CountryList
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/statelist" className="dropdown-item">
+                      StateList
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/statelistnew" className="dropdown-item">
+                      StateListNew
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/SignUpWithParams" className="dropdown-item">
+                      SignUpWithParams
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/contacts" className="dropdown-item">
+                      Contacts
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/CurrencyConvertor" className="nav-link text-white">
+                      CurrencyConvertor{" "}
+                    </Link>
+                  </li>
+                  <li><Link to="/Github" className="nav-link text-white">
+                    GitHub Issues{" "}
+                  </Link></li>
 
                 </ul>
               </li>
             </ul>
             <form className="d-flex col float-end" role="search">
-              <input className="form-control me-2 float-end" type="search" placeholder="Search" aria-label="Search" />
+              {/* <input className="form-control me-2 float-end" type="search" placeholder="Search" aria-label="Search" /> */}
               <button className="btn btn-dark" type="submit">Search</button>
+
             </form>
+            <button className="btn btn-dark pl-1" onClick={() => {
+              console.log("button cickc", AppDataContextnew)
+              AppDataContextnew.enableDarkTheme(!AppDataContextnew.appData.darkTheme)
+
+            }}>Dark Theme</button>
           </div>
         </div>
       </nav>
-    </Navbar>
+    </Navbar >
   );
 };
 

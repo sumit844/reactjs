@@ -1,12 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { AppDataContext } from "../AppData";
 
-const SignUp = () => {
+const Login = () => {
   const { id } = useParams();
-  const [formData, setFormData] = useState({ userName: "", passWord: "", email: "" });
-  const [formValidataError, setFormValidationError] = useState({ userNameError: "", passWordError: "", emailError: "" });
+  const tempAppConstext: any = useContext(AppDataContext);
+  const [formData, setFormData] = useState({ userName: "", passWord: "" });
+  const [formValidataError, setFormValidationError] = useState({ userNameError: "", passWordError: "" });
 
   const changeFormFieldValue = (event: any) => {
     let templObj: any = {};
@@ -15,8 +17,8 @@ const SignUp = () => {
       return { ...prevFormData, ...templObj };
     });
   };
-  const validateForm = (formData1: { userName: string; passWord: string; email: string }) => {
-    let tempObject = { userNameError: "", passWordError: "", emailError: "" };
+  const validateForm = (formData1: { userName: string; passWord: string }) => {
+    let tempObject = { userNameError: "", passWordError: "" };
     if (formData1.userName === "") {
       console.log("log in");
       tempObject.userNameError = "Username can not be empty";
@@ -24,9 +26,7 @@ const SignUp = () => {
     if (formData1.passWord === "") {
       tempObject.passWordError = "Password can not be empty";
     }
-    if (formData1.email === "") {
-      tempObject.emailError = "Email can not be empty";
-    }
+
     if (formData1.passWord !== "") {
       if (formData1.passWord.length < 5) tempObject.passWordError = "Password can not be less than 5 charact";
     }
@@ -36,15 +36,18 @@ const SignUp = () => {
   useEffect(() => {
     console.log(formData);
     console.log(formValidataError);
+    console.log("Temp Data", tempAppConstext);
   }, [formData, formValidataError]);
 
-  const hasFormSubmit = (event: any) => {
+  const hasUserLogin = (event: any) => {
     event.preventDefault();
     validateForm(formData);
+    tempAppConstext.login_user();
   };
+
   return (
     <>
-      <h1>Please Register Yourself with ID {id}</h1>
+      <h1>Enter Details to Login</h1>
       <form>
         <Row>
           <Col sm={3}>
@@ -82,33 +85,15 @@ const SignUp = () => {
           </Col>
         </Row>
         <Row>
-          <Col sm={3}>
-            <label className="mt-4">Email: </label>
-          </Col>
-          <Col sm={9}>
-            <input
-              width="100vw"
-              className="my-4 py-2"
-              type="email"
-              name="email"
-              placeholder="please enter Email"
-              onChange={(event: any) => {
-                changeFormFieldValue(event);
-              }}
-            />
-            {formValidataError.emailError && <p className="text-danger">{formValidataError.emailError}</p>}
-          </Col>
-        </Row>
-        <Row>
           <Col>
             <button
               className="btn btn-primary"
               type="button"
               onClick={(event) => {
-                hasFormSubmit(event);
+                hasUserLogin(event);
               }}
             >
-              Register
+              Login
             </button>
           </Col>
         </Row>
@@ -117,4 +102,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Login;

@@ -1,5 +1,5 @@
 .App{
-    margin: 40px;
+    padding: 40px;
 }
 
 .headerclass{
@@ -11,4 +11,18 @@ h2{
 }
 .eachtaskname{
     border: 2px solid black;
+}
+.tile{
+    display: inline-block;
+    padding:100px;
+    margin: 10px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.weatherCards{
+    margin:auto;
+    text-align:left;
+    border:2px solid gray;
+    display: inline-block;
 }

@@ -6,17 +6,30 @@ type userData = {
   loginStatus: boolean;
   useName: string;
   amountInBank: number;
+  darkTheme: boolean;
+  themeColor: string;
 };
 const AppData = (props: any) => {
   let intialObj: userData = {
-    loginStatus: true,
+    loginStatus: false,
     useName: "user 1",
     amountInBank: 0,
+    darkTheme: false,
+    themeColor: "",
   };
   const [appData, setAppData] = useState<userData>(intialObj);
 
   const login = () => {
     setAppData({ ...appData, loginStatus: !appData.loginStatus });
+  };
+  const login_user = () => {
+    setAppData({ ...appData, loginStatus: true });
+  };
+  const logout_user = () => {
+    setAppData({ ...appData, loginStatus: false });
+  };
+  const update_themeColor = (color: string) => {
+    setAppData({ ...appData, themeColor: color });
   };
   const creditMountToBank = (amount: number) => {
     setAppData({ ...appData, amountInBank: appData.amountInBank + amount });
@@ -24,8 +37,11 @@ const AppData = (props: any) => {
   const debitMountToBank = (amount: any) => {
     setAppData({ ...appData, amountInBank: appData.amountInBank - amount });
   };
+  const enableDarkTheme = (theme: any) => {
+    setAppData({ ...appData, darkTheme: theme });
+  };
 
-  return <AppDataContext.Provider value={{ appData, login, creditMountToBank, debitMountToBank }}>{props.children}</AppDataContext.Provider>;
+  return <AppDataContext.Provider value={{ appData, login, creditMountToBank, debitMountToBank, enableDarkTheme, login_user, logout_user, update_themeColor }}>{props.children}</AppDataContext.Provider>;
 };
 
 export default AppData;

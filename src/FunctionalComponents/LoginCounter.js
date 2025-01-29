@@ -3,7 +3,7 @@ import ModalComponent from "./ModalComponent";
 import { AppDataContext } from "./AppData";
 
 
-const Counter = () => {
+const LoginCounter = () => {
     const AppDataContext1 = useContext(AppDataContext)
     const [count, setCount] = useState(0);
     const [status, setStatus] = useState(true);
@@ -23,7 +23,7 @@ const Counter = () => {
     return (
         <>
             <h1>Welcome to Functional Component</h1>
-            <button onClick={AppDataContext1.login}>{AppDataContext1.loginStatus ? "Logout" : "login"}</button>
+            <button onClick={AppDataContext1.login}>{AppDataContext1.appData.loginStatus ? "Logout" : "login"}</button>
             <p style={{ fontSize: "3rem" }}>{count}</p>
             <button style={{ padding: "20px", backgroundColor: "white", borderRadius: "5px", marginLeft: "10px" }} onClick={increment}>Increment</button>
             <button style={{ padding: "20px", backgroundColor: "white", borderRadius: "5px", marginLeft: "10px" }} onClick={decrement}>Decrement</button>
@@ -38,4 +38,4 @@ const Counter = () => {
     )
 }
 
-export default Counter;
+export default LoginCounter;

@@ -1,35 +1,38 @@
 import React, { useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
 
-const SignUp = () => {
-  const { id } = useParams();
-  const [formData, setFormData] = useState({ userName: "", passWord: "", email: "" });
+const EditContact = (props: any) => {
+  const [formData, setFormData] = useState({ id: props?.item?.id, userName: props?.item?.name, passWord: props?.item?.Mobile, email: props?.item?.Email });
   const [formValidataError, setFormValidationError] = useState({ userNameError: "", passWordError: "", emailError: "" });
 
   const changeFormFieldValue = (event: any) => {
     let templObj: any = {};
+
     templObj[event.target.name] = event.target.value;
+
     setFormData((prevFormData) => {
       return { ...prevFormData, ...templObj };
     });
   };
+
   const validateForm = (formData1: { userName: string; passWord: string; email: string }) => {
     let tempObject = { userNameError: "", passWordError: "", emailError: "" };
     if (formData1.userName === "") {
       console.log("log in");
-      tempObject.userNameError = "Username can not be empty";
+      tempObject.userNameError = "Name can not be empty";
     }
     if (formData1.passWord === "") {
-      tempObject.passWordError = "Password can not be empty";
+      tempObject.passWordError = "Mobile Number can not be empty";
     }
     if (formData1.email === "") {
       tempObject.emailError = "Email can not be empty";
     }
+
     if (formData1.passWord !== "") {
       if (formData1.passWord.length < 5) tempObject.passWordError = "Password can not be less than 5 charact";
     }
+
     setFormValidationError({ ...formValidataError, ...tempObject });
   };
 
@@ -41,14 +44,30 @@ const SignUp = () => {
   const hasFormSubmit = (event: any) => {
     event.preventDefault();
     validateForm(formData);
+    const obj = {
+      name: formData.userName,
+      Email: formData.email,
+      Mobile: formData.passWord,
+    };
+    console.log("Edit URL", `http://localhost:3006/constacts/${formData.id}`);
+    fetch(`http://localhost:3006/constacts/${formData.id}`, {
+      method: "PUT",
+      body: JSON.stringify(obj),
+    }).then((response) => {
+      console.log(response);
+      if (response.ok) {
+        setFormData({ id: "", userName: "", passWord: "", email: "" });
+        props.updateData();
+      }
+    });
   };
   return (
     <>
-      <h1>Please Register Yourself with ID {id}</h1>
+      <h1>Please Edit Contacts</h1>
       <form>
         <Row>
           <Col sm={3}>
-            <label className="mt-4">UserName: </label>
+            <label className="mt-4">Name: </label>
           </Col>
           <Col sm={9}>
             <input
@@ -56,6 +75,7 @@ const SignUp = () => {
               width={100}
               type="text"
               name="userName"
+              value={formData.userName}
               placeholder="please enter your name"
               onChange={(event: any) => {
                 changeFormFieldValue(event);
@@ -66,13 +86,14 @@ const SignUp = () => {
         </Row>
         <Row>
           <Col sm={3}>
-            <label className="mt-4">Password: </label>
+            <label className="mt-4">Mobile: </label>
           </Col>
           <Col sm={9}>
             <input
               className="my-4 py-2"
-              type="password"
+              type="number"
               name="passWord"
+              value={formData.passWord}
               placeholder="please enter Password"
               onChange={(event: any) => {
                 changeFormFieldValue(event);
@@ -91,6 +112,7 @@ const SignUp = () => {
               className="my-4 py-2"
               type="email"
               name="email"
+              value={formData.email}
               placeholder="please enter Email"
               onChange={(event: any) => {
                 changeFormFieldValue(event);
@@ -117,4 +139,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default EditContact;
