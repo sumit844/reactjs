@@ -26,6 +26,21 @@ import Accounts from "./FunctionalComponents/Secure/Accounts";
 import UseLayoutEffectHook from "./FunctionalComponents/Hooks/UseLayoutEffectHook";
 import UseMemoHook from "./FunctionalComponents/Hooks/UseMemoHook";
 import ColorApp from "./FunctionalComponents/ColorApp";
+import UseImperativeHandler from "./FunctionalComponents/Hooks/UseImperativeHandler";
+import UseCallback from "./FunctionalComponents/Hooks/UseCallback";
+import UseNavigateHook from "./FunctionalComponents/Hooks/UseNavigateHook";
+import Contact from "./FunctionalComponents/Hooks/Contact";
+import UseReducerHook from "./FunctionalComponents/Hooks/UseReducerHook";
+import ProductListingPage from "./Redux/ComponentsUsingRedux/ProductListingPage";
+import ProductDetail from "./Redux/ComponentsUsingRedux/ProductDetail";
+import Cart from "./Redux/ComponentsUsingRedux/Cart";
+import Orders from "./Redux/ComponentsUsingRedux/Orders";
+import LoginByRedux from "./Redux/ComponentsUsingRedux/LoginByRedux";
+import MatchBall from "./ClassComponents/Games/MatchBall";
+import SnakeGame from "./ClassComponents/Games/SnakeGame";
+import TempList from "./Redux/ComponentsUsingRedux/TempList";
+import AddProducts from "./FunctionalComponents/ProductForms/AddProducts";
+import Checkout from "./Redux/ComponentsUsingRedux/Checkout";
 export default function RoutesComp() {
   const AppContextData1: any = useContext(AppDataContext);
   console.log("hi", AppContextData1);
@@ -34,6 +49,7 @@ export default function RoutesComp() {
     <Routes>
       <Route path="/" element={<Counter />} />
       <Route path="/todo" element={<Todo />} />
+      <Route path="/useimperativehandlerhook" element={<UseImperativeHandler />} />
       <Route path="/Countries" element={<Countries />} />
       <Route path="/Github" element={<Github />} />
       <Route path="/refClass" element={<RefClass />} />
@@ -50,6 +66,20 @@ export default function RoutesComp() {
       <Route path="/uselayoutEffectHook" element={<UseLayoutEffectHook />} />
       <Route path="/usememohook" element={<UseMemoHook />} />
       <Route path="/ColorApp" element={<ColorApp />} />
+      <Route path="/usecallback" element={<UseCallback />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/usenavigatehook" element={<UseNavigateHook />} />
+      <Route path="/usereducerhook" element={<UseReducerHook />} />
+      <Route path="/productlistingpage" element={<ProductListingPage />} />
+      <Route path="/productdetail/:id" element={<ProductDetail />} />
+      <Route path="/Cart" element={<Cart />} />
+      <Route path="/orders" element={<Orders />} />
+      <Route path="/loginbyredux" element={<LoginByRedux />} />
+      <Route path="/matchball" element={<MatchBall />} />
+      <Route path="/snakegame" element={<SnakeGame />} />
+      <Route path="/templist" element={<TempList />} />
+      <Route path="/addproducts" element={<AddProducts />} />
+      <Route path="/checkout" element={<Checkout />} />
 
       {<Route path="/login" element={<Login />} />}
       <Route path="/statelist" element={<StateList />} />

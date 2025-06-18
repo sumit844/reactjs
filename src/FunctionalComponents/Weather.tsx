@@ -65,7 +65,7 @@ function Weather() {
   const [weatherData, setWeatherData] = useState({});
   useEffect(() => {
     console.log("weewwwww", data);
-    fetch("http://dataservice.accuweather.com/locations/v1/topcities/50?apikey=h9fe5wkAfGBx1eXx0yomT9UUKNTohrjU")
+    fetch("https://dataservice.accuweather.com/locations/v1/topcities/50?apikey=h9fe5wkAfGBx1eXx0yomT9UUKNTohrjU")
       .then((res) => {
         return res.json();
       })
@@ -91,7 +91,7 @@ function Weather() {
   }, []);
 
   const openWeatherModel = (item: any) => {
-    fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${item.Key}?apikey=h9fe5wkAfGBx1eXx0yomT9UUKNTohrjU&details=true&metric=true`)
+    fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${item.Key}?apikey=h9fe5wkAfGBx1eXx0yomT9UUKNTohrjU&details=true&metric=true`)
       .then((res) => {
         return res.json();
       })

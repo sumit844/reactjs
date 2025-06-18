@@ -2,10 +2,19 @@ import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Navbar } from "react-bootstrap";
 import { AppDataContext } from "../AppData";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { LogOutUserAction } from "../../Redux/Actions/LoginActions";
 
 const NavigationLink = () => {
   const AppDataContextnew = useContext(AppDataContext);
   useEffect(() => { }, [AppDataContextnew.appData.loginStatus])
+  const loginData = useSelector((state) => state.logindata);
+  const dispatch = useDispatch();
+  const userLogout = () => {
+    dispatch(LogOutUserAction({ userName: '', loginStatus: false }))
+  }
   return (
     <Navbar className={`headerclass bg-secondary ${AppDataContextnew?.appData?.darkTheme ? "bg-black text-white" : " "}`} >
       <nav class="navbar">
@@ -33,18 +42,13 @@ const NavigationLink = () => {
                   Weather
                 </Link>
               </li>
-              <li class="nav-item ml-auto">
-                <Link to="/accounts" className="nav-link text-white">
-                  Accounts{" "}
-                </Link>
-              </li>
               <li class="nav-item ml-auto"> <Link to="/EmiCalculator" className="nav-link text-white">
                 EmiCalculator{" "}
               </Link></li>
-              <li className="nav-item ml-auto">
-                <Link to="/ExpanseTracker" className="nav-link text-white">
-                  ExpanseTracker{" "}
-                </Link></li>
+              <li class="nav-item ml-auto"><Link to="/productlistingpage" className="nav-link text-white">
+                productlistingpage{" "}
+              </Link></li>
+
               <li className="nav-item ml-auto">
                 {!AppDataContextnew?.appData.loginStatus ? (<Link to="/login" className="nav-link text-white">
                   Login{" "}
@@ -113,27 +117,97 @@ const NavigationLink = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/CurrencyConvertor" className="nav-link text-white">
+                    <Link to="/CurrencyConvertor" className="dropdown-item">
                       CurrencyConvertor{" "}
                     </Link>
                   </li>
-                  <li><Link to="/Github" className="nav-link text-white">
+                  <li><Link to="/Github" className="dropdown-item">
                     GitHub Issues{" "}
                   </Link></li>
-
+                  <li><Link to="/useimperativehandlerhook" className="dropdown-item">
+                    useimperativehandlerhook{" "}
+                  </Link></li>
+                  <li><Link to="/uselayoutEffectHook" className="dropdown-item">
+                    uselayoutEffectHook{" "}
+                  </Link></li>
+                  <li><Link to="/usememohook" className="dropdown-item">
+                    usememohook{" "}
+                  </Link></li>
+                  <li><Link to="/usecallback" className="dropdown-item">
+                    usecallback{" "}
+                  </Link></li>
+                  <li><Link to="/usenavigatehook" className="dropdown-item">
+                    usenavigatehook{" "}
+                  </Link></li>
+                  <li><Link to="/contact" className="dropdown-item">
+                    contact{" "}
+                  </Link></li>
+                  <li><Link to="/usereducerhook" className="dropdown-item">
+                    usereducerhook{" "}
+                  </Link></li>
+                  <li><Link to="/productlistingpage" className="dropdown-item">
+                    productlistingpage{" "}
+                  </Link></li>
+                  <li><Link to="/productdetail" className="dropdown-item">
+                    productdetail{" "}
+                  </Link></li>
+                  <li>
+                    <Link to="/ExpanseTracker" className="dropdown-item">
+                      ExpanseTracker{" "}
+                    </Link></li>
+                  <li>
+                    <Link to="/orders" className="dropdown-item">
+                      Order History{" "}
+                    </Link></li>
+                  <li>
+                    <Link to="/accounts" className="dropdown-item">
+                      Accounts{" "}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/matchball" className="dropdown-item">
+                      Match Ball{" "}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/snakegame" className="dropdown-item">
+                      Snake Game{" "}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/templist" className="dropdown-item">
+                      Temp List{" "}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/addproducts" className="dropdown-item">
+                    Add Products{" "}
+                    </Link>
+                  </li>
                 </ul>
               </li>
             </ul>
             <form className="d-flex col float-end" role="search">
               {/* <input className="form-control me-2 float-end" type="search" placeholder="Search" aria-label="Search" /> */}
-              <button className="btn btn-dark" type="submit">Search</button>
+              <button className="btn btn-dark mr-2 mymargin" type="submit">Search</button>
 
             </form>
-            <button className="btn btn-dark pl-1" onClick={() => {
+            <button className="btn btn-dark ml-2 mymargin" onClick={() => {
               console.log("button cickc", AppDataContextnew)
               AppDataContextnew.enableDarkTheme(!AppDataContextnew.appData.darkTheme)
 
             }}>Dark Theme</button>
+
+            {!loginData?.loginStatus ? (<Link to="/loginbyredux" className="ml-4 ml-auto text-end text-white">
+              Login2{" "}
+            </Link>) : (<><Link to="/Cart" className="nav-item ml-auto">
+              <FontAwesomeIcon icon={faCartShopping} size="2x" className="text-white" />
+            </Link><button onClick={() => { userLogout() }} className="btn ml-4 ml-auto text-end text-white">
+                LogOut{" "}
+              </button></>)}
+
+
+
           </div>
         </div>
       </nav>

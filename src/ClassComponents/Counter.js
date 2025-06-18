@@ -1,8 +1,12 @@
-import React, { Component } from "react";
-import Child from "./Child";
-import LoginCounter from "../FunctionalComponents/LoginCounter";
-import ColorApp from "../FunctionalComponents/ColorApp";
+import React, { Component, Suspense, lazy } from "react";
+// import Child from "./Child";
 
+// import LoginCounter from "../FunctionalComponents/LoginCounter";
+// import ColorApp from "../FunctionalComponents/ColorApp";
+
+const Child = lazy(() => { return import("./Child") });
+const LoginCounter = lazy(() => { return import("../FunctionalComponents/LoginCounter") });
+const ColorApp = lazy(() => { return import("../FunctionalComponents/ColorApp") });
 class Counter extends Component {
   constructor() {
     super();
@@ -27,8 +31,11 @@ class Counter extends Component {
       <div style={{ textAlign: "left" }}>
         <h1>Our Counter</h1>
         <h2 >Count Value is ={this.state.count}</h2>
-        <ColorApp />
-        <LoginCounter />
+        <Suspense fallback={<h1 style={{ color: "red" }}>Content is fetching for u</h1>}>
+          <ColorApp />
+          <LoginCounter />
+        </Suspense>
+
         <button style={{ padding: "10px", margin: "10px", borderRadius: "10px", backgroundColor: "black", color: "white" }}
           onClick={() => {
             this.increament();
@@ -43,8 +50,13 @@ class Counter extends Component {
         >
           Decrement
         </button>
-        <Child stateCount={this.state.count} />
-      </div>
+        <Suspense fallback={<h1 style={{ color: "red" }}>Content is fetching for u</h1>}>
+          <ColorApp />
+          <LoginCounter />
+          <Child stateCount={this.state.count} />
+        </Suspense >
+
+      </div >
     );
   }
 }
