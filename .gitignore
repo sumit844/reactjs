@@ -25,3 +25,6 @@ yarn-error.log*
 # ignore aa folder
 /aa
 .vercel
+/.vs/reactjswithtypescript/FileContentIndex/5aec5d1f-2d56-4a4f-858d-3dfb8e8f4282.vsidx
+/.vs/slnx.sqlite
+/.vs/reactjswithtypescript/FileContentIndex
