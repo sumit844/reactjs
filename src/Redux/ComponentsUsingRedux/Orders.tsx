@@ -32,7 +32,7 @@ export default function Orders() {
     const userName = loginData.userName;
     try {
       const response = await axios.get(
-        `http://localhost:3400/order/getorder/${userName}`
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/order/getorder/${userName}`
       );
       if (response.status == 200) {
         setAllOrder(response.data);
@@ -45,7 +45,7 @@ export default function Orders() {
   const fetchPreviousOrder = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3400/order/getorderbyid/${orderId}`
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/order/getorderbyid/${orderId}`
       );
       if (response.status == 200) {
         setCurrentOrder(response.data);

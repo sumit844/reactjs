@@ -25,7 +25,7 @@ export default function LoginByRedux() {
 
     try {
       const response: any = await axios.post(
-        "http://localhost:3400/users/loginuser",
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/users/loginuser`,
         data
       );
 

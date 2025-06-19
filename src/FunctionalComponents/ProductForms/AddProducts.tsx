@@ -21,7 +21,7 @@ function AddProducts() {
 
   const saveDatatoDB = async () => {
     const data = await axios
-      .post("http://localhost:3400/product/saveproduct", {...formData,id:formData.id+Math.random()})
+      .post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/product/saveproduct`, {...formData,id:formData.id+Math.random()})
       .catch((error) => {
         console.log(error);
       });

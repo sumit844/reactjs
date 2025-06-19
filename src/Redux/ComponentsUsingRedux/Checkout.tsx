@@ -46,7 +46,7 @@ const Checkout = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3400/order/placeorder",
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/order/placeorder`,
         obj,
         {
           headers: {
