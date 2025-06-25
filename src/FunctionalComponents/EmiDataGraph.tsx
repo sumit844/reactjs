@@ -1,6 +1,6 @@
 import React from "react";
 import CanvasJSReact from '@canvasjs/react-charts';
-var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 type EMIDataProps={
 
@@ -16,9 +16,9 @@ let totalinterest:number= (interestRate*Number((principleAmount))*tenure)/100;
 
 totalinterest=parseFloat(totalinterest.toFixed(2));
 
-let totalAmount:number=(principleAmount+totalinterest);
+const totalAmount:number=(principleAmount+totalinterest);
 
-let monthlyEmi=parseFloat((totalAmount/12).toFixed(2));
+const monthlyEmi=parseFloat((totalAmount/12).toFixed(2));
 
   const options = {
     theme: "dark2",

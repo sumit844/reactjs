@@ -12,7 +12,7 @@ export default function ProductDetail() {
   });
   const cartData = useSelector((state: any) => state.Cart);
   const loginData = useSelector((state: any) => state.logindata);
-  let isCurrentProductPresent =
+  const isCurrentProductPresent =
     cartData.filter((item: any) => {
       return item.id === productData.id;
     }).length > 0;

@@ -10,7 +10,7 @@ type userData = {
   themeColor: string;
 };
 const AppData = (props: any) => {
-  let intialObj: userData = {
+  const intialObj: userData = {
     loginStatus: false,
     useName: "user 1",
     amountInBank: 0,

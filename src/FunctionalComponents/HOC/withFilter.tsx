@@ -14,7 +14,7 @@ const withFilter = (OriginalComponent: any, data: any) => {
     }
 
     filterList(e: any) {
-      let tempdata = data.filter((item: any) => {
+      const tempdata = data.filter((item: any) => {
         return item.indexOf(e.target.value) > 0;
       });
       console.log(tempdata);

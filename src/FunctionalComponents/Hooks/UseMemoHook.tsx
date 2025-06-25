@@ -5,13 +5,13 @@ const UseMemoHook = () => {
   const [Cars, setCars] = useState(["Toyoto", "Maruti", "BMW", "Audi"]);
 
   const getCarList: any = (Cars1: any) => {
-    return Cars1?.map((item: string, index: Number) => {
+    return Cars1?.map((item: string, index: number) => {
       console.log("Welcome2" + index);
       return <p key={`${index}+idd`}>{item}</p>;
     });
   };
   const memorisedCarList: any = useMemo(() => {
-    let x = getCarList(Cars);
+    const x = getCarList(Cars);
     console.log(x);
     return x;
   }, [Cars]);

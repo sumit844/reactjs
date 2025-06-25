@@ -4,7 +4,7 @@ import Income from "./Income";
 import { AppDataContext } from "../AppData";
 
 const ExpanseTracker = () => {
-  let tempAppData: any = useContext(AppDataContext);
+  const tempAppData: any = useContext(AppDataContext);
   return (
     <div>
       <div className="row">

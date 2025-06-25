@@ -32,32 +32,32 @@ function SnakeGame() {
     }
     if (event.key === "ArrowDown") {
       setSnake((prevSnake: any) => {
-        let headPart = prevSnake[prevSnake.length - 1];
+        const headPart = prevSnake[prevSnake.length - 1];
         console.log("head", headPart);
         prevSnake = prevSnake.slice(0, -1);
         console.log("Update PrevStatewithoutHead", prevSnake);
 
-        let filterSnakePart = prevSnake.filter((snakePosition: any, index: number) => {
+        const filterSnakePart = prevSnake.filter((snakePosition: any, index: number) => {
           return snakePosition.x === headPart.x;
         });
         console.log("filterSnakePart", filterSnakePart);
 
         if (filterSnakePart.length === 0) {
-          let updatedSnake = moveSnakePartInYAndXBy1Unit([...prevSnake, headPart]);
+          const updatedSnake = moveSnakePartInYAndXBy1Unit([...prevSnake, headPart]);
           console.log("Updated Snake when filterSnakePart is empty", updatedSnake);
           return updatedSnake;
         } else {
-          let moveSnakePartinXandY = prevSnake.slice(0, -filterSnakePart.length);
+          const moveSnakePartinXandY = prevSnake.slice(0, -filterSnakePart.length);
           console.log("moveSnakePartinXandY", moveSnakePartinXandY);
-          let updatedSnake = moveSnakePartInYAndXBy1Unit(moveSnakePartinXandY);
+          const updatedSnake = moveSnakePartInYAndXBy1Unit(moveSnakePartinXandY);
 
           console.log("move snake in y part", [...filterSnakePart, headPart]);
-          let updatedSnakePartinY = moveSnakePartInYBy1Unit([...filterSnakePart, headPart]);
+          const updatedSnakePartinY = moveSnakePartInYBy1Unit([...filterSnakePart, headPart]);
 
           console.log("updatedSnakePartinY", updatedSnakePartinY);
           return [...updatedSnake, ...updatedSnakePartinY];
         }
-        let updatedSnake = moveSnakePartInYAndXBy1Unit(filterSnakePart);
+        const updatedSnake = moveSnakePartInYAndXBy1Unit(filterSnakePart);
         console.log("updatedSnake", updatedSnake);
         return updatedSnake;
       });

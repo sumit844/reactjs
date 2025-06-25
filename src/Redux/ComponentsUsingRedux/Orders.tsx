@@ -60,7 +60,7 @@ export default function Orders() {
     fetchAllOrdersofThisUser();
   }, [orderId]);
 
-  let data: any = new Date();
+  const data: any = new Date();
   return (
     <div>
       <div className="m-auto pb-5">

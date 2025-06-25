@@ -6,11 +6,11 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function LoginByRedux() {
-  let inputRef1 = useRef<HTMLInputElement | null>(null);
+  const inputRef1 = useRef<HTMLInputElement | null>(null);
   const loginData = useSelector((state: any) => state.logindata);
   const navigate = useNavigate();
-  let inputRef2: any = useRef();
-  let errorRef: any = useRef();
+  const inputRef2: any = useRef();
+  const errorRef: any = useRef();
   const dispath = useDispatch();
   if (loginData.loginStatus) {
     if (loginData.previousUrl) {
@@ -49,8 +49,8 @@ export default function LoginByRedux() {
 
   
   const loginUser = () => {
-    let userName = inputRef1?.current?.value;
-    let password = inputRef2?.current?.value;
+    const userName = inputRef1?.current?.value;
+    const password = inputRef2?.current?.value;
 
     if (userName !== "" && password !== "") {
       if (userName === "mohan" && password === "12345") {

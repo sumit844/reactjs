@@ -13,7 +13,7 @@ const {data, myfunc}=props
 
     yield 1;
     console.log("welcome")
-    let yourname:unknown = yield "Wehat is your name";
+    const yourname:unknown = yield "Wehat is your name";
     yield console.log("Welcome"+yourname)
   }
 

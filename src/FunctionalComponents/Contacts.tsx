@@ -3,7 +3,7 @@ import AddContacts from "./AddContacts";
 import EditContact from "./EditContact";
 
 const Contacts = () => {
-  let initailArra: any[] = [];
+  const initailArra: any[] = [];
   const [contactList, setContactList] = useState(initailArra);
   const [rowData, setRowData] = useState();
   const [openEditForm, setEditForm] = useState(false);

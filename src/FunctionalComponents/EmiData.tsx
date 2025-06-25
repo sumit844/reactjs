@@ -15,9 +15,9 @@ let totalinterest:number= (interestRate*Number((principleAmount))*tenure)/100;
 
 totalinterest=parseFloat(totalinterest.toFixed(2));
 
-let totalAmount:number=(principleAmount+totalinterest);
+const totalAmount:number=(principleAmount+totalinterest);
 
-let monthlyEmi=parseFloat((totalAmount/12).toFixed(2));
+const monthlyEmi=parseFloat((totalAmount/12).toFixed(2));
   return (
     <div className="my-4">
       <h2>EMI Detail</h2>

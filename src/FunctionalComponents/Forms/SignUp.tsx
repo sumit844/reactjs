@@ -9,14 +9,14 @@ const SignUp = () => {
   const [formValidataError, setFormValidationError] = useState({ userNameError: "", passWordError: "", emailError: "" });
 
   const changeFormFieldValue = (event: any) => {
-    let templObj: any = {};
+    const templObj: any = {};
     templObj[event.target.name] = event.target.value;
     setFormData((prevFormData) => {
       return { ...prevFormData, ...templObj };
     });
   };
   const validateForm = (formData1: { userName: string; passWord: string; email: string }) => {
-    let tempObject = { userNameError: "", passWordError: "", emailError: "" };
+    const tempObject = { userNameError: "", passWordError: "", emailError: "" };
     if (formData1.userName === "") {
       console.log("log in");
       tempObject.userNameError = "Username can not be empty";

@@ -8,14 +8,14 @@ interface IIncome {
   id: string;
 }
 const Income = () => {
-  let tempAppData: any = useContext(AppDataContext);
-  let formData1 = { incomeName: "", incomeAmount: "" };
+  const tempAppData: any = useContext(AppDataContext);
+  const formData1 = { incomeName: "", incomeAmount: "" };
   const [formData, setFormData] = useState(formData1);
   const [formValidataError, setFormValidationError] = useState({ incomeNameError: "", incomeAmountError: "" });
   const [incomeList, setIncomeList] = useState<IIncome[]>();
 
   const changeFormFieldValue = (event: any) => {
-    let templObj: any = {};
+    const templObj: any = {};
 
     templObj[event.target.name] = event.target.value;
 
@@ -25,7 +25,7 @@ const Income = () => {
   };
 
   const validateForm = (formData1: { incomeName: string; incomeAmount: string }) => {
-    let tempObject = { incomeNameError: "", incomeAmountError: "" };
+    const tempObject = { incomeNameError: "", incomeAmountError: "" };
     if (formData1.incomeName === "") {
       tempObject.incomeNameError = "IncomeName can not be empty";
     }
@@ -33,8 +33,8 @@ const Income = () => {
       tempObject.incomeAmountError = "IncomeAmount can not be empty";
     }
     if (formData1.incomeName !== "" && formData1.incomeAmount !== "") {
-      let ids = Number(Math.random() * 100000);
-      let tempObj: IIncome = {
+      const ids = Number(Math.random() * 100000);
+      const tempObj: IIncome = {
         incomeName: formData1.incomeName,
         incomeAmount: formData1.incomeAmount,
         id: parseInt(ids.toString()).toString(),

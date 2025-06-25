@@ -45,7 +45,7 @@ export const GetProduct = (states: any = {}, action: any) => {
 const isProductAddedIntheList = (data: any, payload: any) => {
   console.log("data", data);
   console.log("payload", payload);
-  for (let item of data) {
+  for (const item of data) {
     if (item.id === payload.id) {
       return true;
     }
@@ -92,7 +92,7 @@ export const AddItemToCart = (state: any = [], action: any) => {
       return [];
     }
     case DELETEITEMFROMCATY: {
-      let tempItems = state.filter((item: any) => item.id !== action.payload.id);
+      const tempItems = state.filter((item: any) => item.id !== action.payload.id);
       console.log("tempItems", tempItems);
       return [...tempItems];
     }

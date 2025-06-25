@@ -17,35 +17,35 @@ const NavigationLink = () => {
   }
   return (
     <Navbar className={`headerclass bg-secondary ${AppDataContextnew?.appData?.darkTheme ? "bg-black text-white" : " "}`} >
-      <nav class="navbar">
-        <div class="container-fluid">
+      <nav className="navbar">
+        <div className="container-fluid">
           <Link to="/" className="navbar-brand text-white">
             Home
           </Link>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  mb-2 mb-lg-0 justify-content-between">
-              <li class="nav-item ml-auto flex-fill">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav  mb-2 mb-lg-0 justify-content-between">
+              <li className="nav-item ml-auto flex-fill">
                 <Link to="/todo" className="nav-link active text-white" >
                   To Do
                 </Link>
               </li>
-              <li class="nav-item ml-auto flex-fill">
+              <li className="nav-item ml-auto flex-fill">
                 <Link to="/Countries" className="nav-link text-white">
                   Countries
                 </Link>
               </li>
-              <li class="nav-item ml-auto flex-fill">
+              <li className="nav-item ml-auto flex-fill">
                 <Link to="/weather" className="nav-link text-white">
                   Weather
                 </Link>
               </li>
-              <li class="nav-item ml-auto"> <Link to="/EmiCalculator" className="nav-link text-white">
+              <li className="nav-item ml-auto"> <Link to="/EmiCalculator" className="nav-link text-white">
                 EmiCalculator{" "}
               </Link></li>
-              <li class="nav-item ml-auto"><Link to="/productlistingpage" className="nav-link text-white">
+              <li className="nav-item ml-auto"><Link to="/productlistingpage" className="nav-link text-white">
                 productlistingpage{" "}
               </Link></li>
 

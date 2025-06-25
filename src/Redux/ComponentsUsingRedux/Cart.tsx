@@ -95,7 +95,7 @@ export default function Cart() {
             <h3>
               Total Price (USD):
               {cartData.reduce((acc: number, item: any, index: number) => {
-                let totalValue = acc + item.price * item.productCount;
+                const totalValue = acc + item.price * item.productCount;
 
                 return totalValue;
               }, 0)}

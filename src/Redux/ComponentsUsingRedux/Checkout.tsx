@@ -23,12 +23,12 @@ const Checkout = () => {
   let totalPrice = 0;
 
   const handleOnChange = (e: any) => {
-    var key = e.target.name;
-    var value = e.target.value;
+    const key = e.target.name;
+    const value = e.target.value;
     setFormData({ ...formData, [key]: value });
   };
   const placeOrder = async () => {
-    let obj: any = {};
+    const obj: any = {};
     obj.orderId = (Math.random() * 10000).toString();
 
     obj.orderDate = new Date().toString();
@@ -126,7 +126,6 @@ const Checkout = () => {
                 )}
               </div>
             </div>
-
             <div className="Row">
               <h1>Please fill below details</h1>
               Pincode:

@@ -7,7 +7,7 @@ type contextObject={
   setVal?:any
 }
 
-let initialObj:contextObject={
+const initialObj:contextObject={
   val:''
 }
 export const weatherContext = createContext(initialObj);

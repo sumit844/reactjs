@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import ChildRefFunc from "./ChildRefFunc";
 
 const RefFunction=()=>{
-let inputref1:any=useRef();
+const inputref1:any=useRef();
 
 const fetchInputUsingzRef=()=>{
     window.alert(inputref1?.current?.value);

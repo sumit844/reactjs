@@ -7,14 +7,14 @@ interface Iexpanse {
   id: string;
 }
 const Expanse = () => {
-  let tempAppData: any = useContext(AppDataContext);
-  let formData1 = { expanseName: "", expanseAmount: "" };
+  const tempAppData: any = useContext(AppDataContext);
+  const formData1 = { expanseName: "", expanseAmount: "" };
   const [formData, setFormData] = useState(formData1);
   const [formValidataError, setFormValidationError] = useState({ expanseNameError: "", expanseAmountError: "" });
   const [expanseList, setExpanseList] = useState<Iexpanse[]>();
 
   const changeFormFieldValue = (event: any) => {
-    let templObj: any = {};
+    const templObj: any = {};
 
     templObj[event.target.name] = event.target.value;
 
@@ -24,7 +24,7 @@ const Expanse = () => {
   };
 
   const validateForm = (formData1: { expanseName: string; expanseAmount: string }) => {
-    let tempObject = { expanseNameError: "", expanseAmountError: "" };
+    const tempObject = { expanseNameError: "", expanseAmountError: "" };
     if (formData1.expanseName === "") {
       tempObject.expanseNameError = "expanseName can not be empty";
     }
@@ -32,8 +32,8 @@ const Expanse = () => {
       tempObject.expanseAmountError = "expanseAmount can not be empty";
     }
     if (formData1.expanseName !== "" && formData1.expanseAmount !== "") {
-      let ids = Number(Math.random() * 100000);
-      let tempObj: Iexpanse = {
+      const ids = Number(Math.random() * 100000);
+      const tempObj: Iexpanse = {
         expanseName: formData1.expanseName,
         expanseAmount: formData1.expanseAmount,
         id: parseInt(ids.toString()).toString(),
